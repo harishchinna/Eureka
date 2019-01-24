@@ -14,10 +14,10 @@ public class HelloResource {
 	private RestTemplate restTemplate;
 	 
 	
-	@RequestMapping
+	@RequestMapping("/")
 	public String gettingHelloWorld(Model model)
 	{
-		ResponseEntity<String> entity = restTemplate.getForEntity("http://hello-service", String.class);
+		ResponseEntity<String> entity = restTemplate.getForEntity("http://hello-service/hello", String.class);
 		String message =  entity.getBody();
 		System.out.println(message);
 		model.addAttribute("message", message);
